@@ -11,6 +11,7 @@
     "@types/react-dom": "^16.0.11",
     "apollo-boost": "^0.4.3",
     "apollo-server-lambda": "^2.8.1",
+    "dotenv-webpack": "^1.7.0",
     "encoding": "^0.1.12",
     "graphql": "^14.4.2",
     "node-fetch": "^2.3.0",
@@ -23,10 +24,10 @@
   "scripts": {
     "start": "run-p start:**",
     "start:app": "react-scripts start",
-    "start:lambda": "netlify-lambda serve src/lambda",
+    "start:lambda": "netlify-lambda serve src/lambda --config ./webpack.functions.js",
     "build": "run-p build:**",
     "build:app": "react-scripts build",
-    "build:lambda": "netlify-lambda build src/lambda",
+    "build:lambda": "netlify-lambda build src/lambda --config ./webpack.functions.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -21,9 +21,6 @@ const baseURL = 'https://api.sandbox.ebay.com/buy/browse/v1/item_summary/search'
 
 const resolvers = {
     Query: {
-        hello: (root, args, context) => {
-            return 'Hello, world!'
-        },
         items: (parent, args) => {
             const { q } = args
             return fetch(`${baseURL}?q=${q}`, {
@@ -31,7 +28,10 @@ const resolvers = {
                     authorization:
                         'Bearer ' + process.env.REACT_APP_API_KEY,
                 },
-            }).then(res => res.json())
+            }).then(res => {
+                console.log(res);
+                return res.json();
+            })
         },
     },
 }
